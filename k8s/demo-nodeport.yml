@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: demo
+spec:
+  type: NodePort
+  ports:
+    - port: 8086
+      nodePort: 30000
+  selector:
+    name: demo

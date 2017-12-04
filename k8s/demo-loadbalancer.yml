@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: demo
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8086
+  selector:
+    name: demo
