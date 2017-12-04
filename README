@@ -1,0 +1,35 @@
+How to create a docker image and push it to Docker Hub
+Creating your new image
+docker pull ubuntu
+docker run --name test-lamp-server -it ubuntu:latest bash
+apt-get update
+apt-get install lamp-server^
+During the installation process, you will be asked to create (and verify) a password for the MySQL "root" user.
+When the installation is complete, you need to exit the container with the exit command. Issue the command docker ps -a and you should see the new container listed.
+
+Pushing the container to Docker Hub
+docker commit -m "Added LAMP Server" -a "NAME" test-lamp-server USER/test-lamp-server:latest
+docker login
+docker push USER/test-lamp-server
+
+Pull down the Registry Image
+docker pull registry
+docker run -d -p 5000:5000 --name 
+localregistry registry
+docker ps
+docker pull image
+docker pull localhost:5000/image
+docker tag image:latest
+
+
+CircleCI the status badges are also simply images that you can drop into your README.md file with the markdown. For example:
+https://circleci.com/gh/<your github name>/<repo name>.png?circle-token=:circle-token
+OR
+https://circleci.com/gh/<your github name>/<repo name>.svg?style=shield&circle-token=:circle-token
+
+
+kubectl create -f influxdb-hostnetwork.yml
+kubectl create -f (create this Deployment)
+kubectl set image deployment/nginx-deployment nginx=nginx:1.9.1 (update)
+kubectl scale deployment nginx-deployment --replicas=10 (scale)
+
